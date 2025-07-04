@@ -1,0 +1,14 @@
+{
+  "name": "Export Board Power-Up MVP",
+  "id": "export-board-mvp",
+  "apiVersion": 1,
+  "author": "Tu Nombre",
+  "capabilities": ["board-buttons"],
+  "board-buttons": [
+    {
+      "text": "Exportar tablero",
+      "callback": "exportBoard",
+      "condition": "always"
+    }
+  ]
+}

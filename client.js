@@ -4,7 +4,8 @@ TrelloPowerUp.initialize({
     return [{
       icon: './icon.png', // Opcional
       text: 'Exportar tablero',
-      callback: exportBoard
+      callback: exportBoard,
+      condition: 'always'
     }];
   }
 });

@@ -44,5 +44,14 @@ var boardButtonCallback = function(t) {
     };
 
     console.log("Export JSON:", exportData);
+
+    // Lo convertimos a JSON y lo descargamos
+    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportData, null, 2));
+    const downloadAnchorNode = document.createElement('a');
+    downloadAnchorNode.setAttribute("href", dataStr);
+    downloadAnchorNode.setAttribute("download", "listas_y_tarjetas.json");
+    document.body.appendChild(downloadAnchorNode);
+    downloadAnchorNode.click();
+    downloadAnchorNode.remove();
   });
 }

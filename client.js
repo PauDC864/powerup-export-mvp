@@ -21,21 +21,28 @@ TrelloPowerUp.initialize({
 });
 
 var boardButtonCallback = function(t) {
-  return t.board('all').then(function(board) {
-    console.log('Datos del tablero:', board);
+  return t.lists('all').then(function(lists) {
 
-    t.lists('all').then(function(lists) {
-  lists.forEach(function(lista) {
-    console.log(`Lista: ${lista.name}`);
-    console.log('Tarjetas:', lista.cards);
-  });
-});
-    //const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(board, null, 2));
-    //const downloadAnchorNode = document.createElement('a');
-    //downloadAnchorNode.setAttribute("href", dataStr);
-    //downloadAnchorNode.setAttribute("download", `${board.name || 'tablero'}.json`);
-    //document.body.appendChild(downloadAnchorNode);
-    //downloadAnchorNode.click();
-    //downloadAnchorNode.remove();
+    // Creamos estructura
+    const exportData = {
+      lists: lists.map(function(lista) {
+        return {
+          id: lista.id,
+          name: lista.name,
+          cards: lista.cards.map(function(card) {
+            return {
+              id: card.id,
+              name: card.name,
+              desc: card.desc,
+              due: card.due,
+              url: card.url,
+              labels: card.labels
+            };
+          })
+        };
+      })
+    };
+
+    console.log("Export JSON:", exportData);
   });
 }

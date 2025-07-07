@@ -16,7 +16,7 @@ TrelloPowerUp.initialize({
 }});
 
 var boardButtonCallback = function(t) {
-  return t.board('id').then(function(board) {
+  return t.board('all').then(function(board) {
     console.log('Datos del tablero:', board);
 
     //const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(board, null, 2));

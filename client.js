@@ -1,16 +1,21 @@
+var Promise = TrelloPowerUp.Promise;
+
+var BLACK_ROCKET_ICON = 'https://cdn.glitch.com/1b42d7fe-bda8-4af8-a6c8-eff0cea9e08a%2Frocket-ship.png?1494946700421';
+
 // Inicializa la librería de Trello Power-Up
-window.TrelloPowerUp.initialize({
-  'board-buttons': function(t, options) {
+TrelloPowerUp.initialize({
+  // Start adding handlers for your capabilities here!
+  'board-buttons': function(t, options){
     return [{
-      icon: './icon.png', // Opcional
-      text: 'Exportar tablero',
-      callback: exportBoard,
-      condition: 'always'
+      // we can either provide a button that has a callback function
+      // that callback function should probably open a popup, overlay, or boardBar
+      icon: BLACK_ROCKET_ICON,
+      text: 'Popup',
+      callback: boardButtonCallback
     }];
-  }
 });
 
-function exportBoard(t) {
+var boardButtonCallback = function(t) {
   return t.board('all').then(function(board) {
     console.log('Datos del tablero:', board);
 

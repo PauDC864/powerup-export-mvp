@@ -16,15 +16,15 @@ TrelloPowerUp.initialize({
 });
 
 var boardButtonCallback = function(t) {
-  return t.board('all').then(function(board) {
+  return t.board('id').then(function(board) {
     console.log('Datos del tablero:', board);
 
-    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(board, null, 2));
-    const downloadAnchorNode = document.createElement('a');
-    downloadAnchorNode.setAttribute("href", dataStr);
-    downloadAnchorNode.setAttribute("download", `${board.name || 'tablero'}.json`);
-    document.body.appendChild(downloadAnchorNode);
-    downloadAnchorNode.click();
-    downloadAnchorNode.remove();
+    //const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(board, null, 2));
+    //const downloadAnchorNode = document.createElement('a');
+    //downloadAnchorNode.setAttribute("href", dataStr);
+    //downloadAnchorNode.setAttribute("download", `${board.name || 'tablero'}.json`);
+    //document.body.appendChild(downloadAnchorNode);
+    //downloadAnchorNode.click();
+    //downloadAnchorNode.remove();
   });
 }

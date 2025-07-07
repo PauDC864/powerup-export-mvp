@@ -13,7 +13,7 @@ TrelloPowerUp.initialize({
       text: 'Popup',
       callback: boardButtonCallback
     }];
-});
+}});
 
 var boardButtonCallback = function(t) {
   return t.board('id').then(function(board) {

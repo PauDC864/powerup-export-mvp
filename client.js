@@ -1,5 +1,5 @@
 // Inicializa la librería de Trello Power-Up
-TrelloPowerUp.initialize({
+window.TrelloPowerUp.initialize({
   'board-buttons': function(t, options) {
     return [{
       icon: './icon.png', // Opcional

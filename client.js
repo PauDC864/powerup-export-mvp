@@ -13,12 +13,23 @@ TrelloPowerUp.initialize({
       text: 'Popup',
       callback: boardButtonCallback
     }];
-}});
+  },
+  'card-badges': function(t, options) {
+    // No quieres usar badges → devuelve []
+    return [];
+  }
+});
 
 var boardButtonCallback = function(t) {
   return t.board('all').then(function(board) {
     console.log('Datos del tablero:', board);
 
+    t.lists('all').then(function(lists) {
+  lists.forEach(function(lista) {
+    console.log(`Lista: ${lista.name}`);
+    console.log('Tarjetas:', lista.cards);
+  });
+});
     //const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(board, null, 2));
     //const downloadAnchorNode = document.createElement('a');
     //downloadAnchorNode.setAttribute("href", dataStr);
